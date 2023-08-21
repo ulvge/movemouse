@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ellanet</RootNamespace>
     <AssemblyName>Move Mouse</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
     </StartupObject>
@@ -127,6 +127,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +154,6 @@
     <None Include="Resources\Mouse-Play.ico" />
     <None Include="Resources\Mouse-Pause.ico" />
     <None Include="Resources\MouseHole_Image.gif" />
-    <None Include="Resources\Twitter_logo_blue.png" />
     <None Include="Resources\Mice\FingerMouse01.jpg" />
     <None Include="Resources\EasterEgg.png" />
     <None Include="Resources\codeplex.png" />

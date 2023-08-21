@@ -19,9 +19,9 @@ namespace Ellanet.Forms
             {
                 StartInfo =
                 {
-                    FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"), 
-                    Arguments = String.Format("-Command \"Set-ExecutionPolicy {0}\"", policyComboBox.SelectedItem), 
-                    Verb = "runas", 
+                    FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"),
+                    Arguments = String.Format("-Command \"Set-ExecutionPolicy {0}\"", policyComboBox.SelectedItem),
+                    Verb = "runas",
                     WindowStyle = ProcessWindowStyle.Normal
                 }
             };

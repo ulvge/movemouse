@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Ellanet.Events;
+using Ellanet.Properties;
+using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Ellanet.Events;
-using Ellanet.Properties;
-using Microsoft.Win32;
 
 namespace Ellanet.Forms
 {
@@ -21,7 +21,6 @@ namespace Ellanet.Forms
         private readonly NotifyIcon _sysTrayIcon;
         private MouseForm _moveMouse;
         private bool _directUserToDownloadsOnBalloonClick;
-        private bool _directUserToPowerShellExecutionPolicyFormOnBalloonClick;
         private IntPtr _hookId = IntPtr.Zero;
         private Keys _hookKey;
         private LowLevelKeyboardProc _hookProc;
@@ -89,7 +88,6 @@ namespace Ellanet.Forms
         private void sysTrayIcon_BalloonTipClosed(object sender, EventArgs e)
         {
             _directUserToDownloadsOnBalloonClick = false;
-            _directUserToPowerShellExecutionPolicyFormOnBalloonClick = false;
         }
 
         private void sysTrayIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -99,12 +97,6 @@ namespace Ellanet.Forms
                 if (_directUserToDownloadsOnBalloonClick && !String.IsNullOrEmpty(_downloadUrl))
                 {
                     Process.Start(_downloadUrl);
-                }
-
-                if (_directUserToPowerShellExecutionPolicyFormOnBalloonClick)
-                {
-                    var psForm = new PowerShellExecutionPolicyForm();
-                    psForm.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -147,7 +139,6 @@ namespace Ellanet.Forms
                 _moveMouse.ScheduleArrived -= _moveMouse_ScheduleArrived;
                 _moveMouse.FormClosing -= _moveMouse_FormClosing;
                 _moveMouse.PowerLineStatusChanged -= _moveMouse_PowerLineStatusChanged;
-                _moveMouse.PowerShellexecutionPolicyWarning -= _moveMouse_PowerShellexecutionPolicyWarning;
                 _moveMouse.HookKeyStatusChanged -= _moveMouse_HookKeyStatusChanged;
                 _moveMouse.MoveMouseStarted -= _moveMouse_MoveMouseStarted;
                 _moveMouse.MoveMousePaused -= _moveMouse_MoveMousePaused;
@@ -174,7 +165,6 @@ namespace Ellanet.Forms
                 _moveMouse.ScheduleArrived += _moveMouse_ScheduleArrived;
                 _moveMouse.FormClosing += _moveMouse_FormClosing;
                 _moveMouse.PowerLineStatusChanged += _moveMouse_PowerLineStatusChanged;
-                _moveMouse.PowerShellexecutionPolicyWarning += _moveMouse_PowerShellexecutionPolicyWarning;
                 _moveMouse.HookKeyStatusChanged += _moveMouse_HookKeyStatusChanged;
                 _moveMouse.MoveMouseStarted += _moveMouse_MoveMouseStarted;
                 _moveMouse.MoveMousePaused += _moveMouse_MoveMousePaused;
@@ -222,12 +212,6 @@ namespace Ellanet.Forms
                 Debug.WriteLine(String.Format("Hooking {0}...", _hookKey));
                 _hookId = SetHook(_hookProc);
             }
-        }
-
-        private void _moveMouse_PowerShellexecutionPolicyWarning(object sender)
-        {
-            _directUserToPowerShellExecutionPolicyFormOnBalloonClick = true;
-            _sysTrayIcon.ShowBalloonTip(BalloonTipTimeout, "PowerShell Execution Policy", "Move Mouse has detected that your PowerShell execution policy will not allow you to run scripts.\r\n\r\nPlease click here to resolve this.", ToolTipIcon.Warning);
         }
 
         private void _moveMouse_PowerLineStatusChanged(object sender, PowerLineStatusChangedEventArgs e)

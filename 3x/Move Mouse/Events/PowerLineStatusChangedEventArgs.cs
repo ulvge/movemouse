@@ -2,7 +2,7 @@
 
 namespace Ellanet.Events
 {
-    public class PowerLineStatusChangedEventArgs: EventArgs
+    public class PowerLineStatusChangedEventArgs : EventArgs
     {
         public PowerLineStatus Status { get; internal set; }
 
