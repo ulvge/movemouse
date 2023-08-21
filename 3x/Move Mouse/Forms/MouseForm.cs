@@ -1243,7 +1243,7 @@ namespace Ellanet.Forms
                     _mouseTimer.Start();
                     actionButton.Text = "暂停";
                     optionsTabControl.Enabled = false;
-                    Opacity = .85;
+                    Opacity = 0.95;
                     SaveSettings();
                     break;
             }
