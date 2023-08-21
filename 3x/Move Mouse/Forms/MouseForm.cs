@@ -269,7 +269,7 @@ namespace Ellanet.Forms
             ReadSettings();
             _homeAddress = "";
             Icon = Properties.Resources.Mouse_Icon;
-            Text = String.Format("摸鱼 ({0}.{1}.{2})   {3}", Assembly.GetExecutingAssembly().GetName().Version.Major, Assembly.GetExecutingAssembly().GetName().Version.Minor, Assembly.GetExecutingAssembly().GetName().Version.Build, _homeAddress);
+            Text = String.Format("车辆保险 ({0}.{1}.{2})   {3}", Assembly.GetExecutingAssembly().GetName().Version.Major, Assembly.GetExecutingAssembly().GetName().Version.Minor, Assembly.GetExecutingAssembly().GetName().Version.Build, _homeAddress);
             FormClosing += MouseForm_FormClosing;
             Load += MouseForm_Load;
             Resize += MouseForm_Resize;
@@ -470,12 +470,12 @@ namespace Ellanet.Forms
             if (launchAtLogonCheckBox.Checked)
             {
                 var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-                key?.SetValue("摸鱼", Application.ExecutablePath);
+                key?.SetValue("车辆保险", Application.ExecutablePath);
             }
             else
             {
                 var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-                key?.DeleteValue("摸鱼");
+                key?.DeleteValue("车辆保险");
             }
         }
 
@@ -1203,13 +1203,13 @@ namespace Ellanet.Forms
         {
             switch (actionButton.Text)
             {
-                case "暂停":
+                case "pause":
                     OnMoveMouseStopped();
                     _mouseTimer.Stop();
                     _resumeTimer.Start();
                     _easterEggActive = false;
                     ResetMousePicture();
-                    actionButton.Text = "启动";
+                    actionButton.Text = "launch";
                     countdownProgressBar.Value = 0;
                     optionsTabControl.Enabled = true;
                     Opacity = 1.0;
@@ -1241,7 +1241,7 @@ namespace Ellanet.Forms
                     _resumeTimer.Stop();
                     OnMoveMouseStarted();
                     _mouseTimer.Start();
-                    actionButton.Text = "暂停";
+                    actionButton.Text = "pause";
                     optionsTabControl.Enabled = false;
                     Opacity = 0.95;
                     SaveSettings();

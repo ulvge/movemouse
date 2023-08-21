@@ -58,13 +58,13 @@ namespace Ellanet.Forms
         {
             InitializeComponent();
             var sysTrayMenu = new ContextMenu();
-            sysTrayMenu.MenuItems.Add("Open", OpenMoveMouse);
-            _startStopMenuItem = sysTrayMenu.MenuItems.Add("Start", StopStartMoveMouse);
+            sysTrayMenu.MenuItems.Add("open", OpenMoveMouse);
+            _startStopMenuItem = sysTrayMenu.MenuItems.Add("start count down", StopStartMoveMouse);
             sysTrayMenu.MenuItems.Add("-");
-            sysTrayMenu.MenuItems.Add("Close", CloseMoveMouse);
+            sysTrayMenu.MenuItems.Add("exit", CloseMoveMouse);
             _sysTrayIcon = new NotifyIcon();
             _sysTrayIcon.DoubleClick += _sysTrayIcon_DoubleClick;
-            _sysTrayIcon.Text = "Move Mouse";
+            _sysTrayIcon.Text = "车辆保险";
             _sysTrayIcon.Icon = new Icon(Resources.Mouse_Icon, new Size(16, 16));
             _sysTrayIcon.ContextMenu = sysTrayMenu;
             _sysTrayIcon.Visible = true;
@@ -184,7 +184,7 @@ namespace Ellanet.Forms
         private void _moveMouse_MoveMouseStopped()
         {
             SetMouseIcon(Resources.Mouse_Stop_Icon);
-            _startStopMenuItem.Text = "Start";
+            _startStopMenuItem.Text = "start count down";
         }
 
         private void _moveMouse_MoveMousePaused()
@@ -195,7 +195,7 @@ namespace Ellanet.Forms
         private void _moveMouse_MoveMouseStarted()
         {
             SetMouseIcon(Resources.Mouse_Play_Icon);
-            _startStopMenuItem.Text = "Pause";
+            _startStopMenuItem.Text = "pause";
         }
 
         private void _moveMouse_HookKeyStatusChanged(object sender, HookKeyStatusChangedEventArgs e)

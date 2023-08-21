@@ -75,7 +75,7 @@
             this.actionButton.Name = "actionButton";
             this.actionButton.Size = new System.Drawing.Size(75, 23);
             this.actionButton.TabIndex = 1;
-            this.actionButton.Text = "启动";
+            this.actionButton.Text = "launch";
             this.actionButton.UseVisualStyleBackColor = true;
             // 
             // countdownProgressBar
@@ -280,7 +280,7 @@
             this.actionsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.actionsTabPage.Size = new System.Drawing.Size(467, 300);
             this.actionsTabPage.TabIndex = 0;
-            this.actionsTabPage.Text = "主要参数";
+            this.actionsTabPage.Text = "main setting";
             this.actionsTabPage.UseVisualStyleBackColor = true;
             // 
             // delayNumericUpDown
@@ -312,7 +312,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 4;
-            this.label1.Text = "时间间隔(秒)";
+            this.label1.Text = "time interval(s)";
             // 
             // moveMouseCheckBox
             // 
@@ -323,7 +323,7 @@
             this.moveMouseCheckBox.Name = "moveMouseCheckBox";
             this.moveMouseCheckBox.Size = new System.Drawing.Size(147, 20);
             this.moveMouseCheckBox.TabIndex = 1;
-            this.moveMouseCheckBox.Text = "是否移动鼠标光标";
+            this.moveMouseCheckBox.Text = "is move the mouse cursor";
             this.moveMouseCheckBox.UseVisualStyleBackColor = true;
             // 
             // clickMouseCheckBox
