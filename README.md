@@ -1,3 +1,11 @@
+2023-9-14 10:26:02
+主要功能：周期性移动鼠标，以防电脑软件，检测到人已离开座位。
+
+是从其它项目移植过来
+
+好像有两套框架，去掉了其中一套，去掉了一些不常用的功能，混淆了软件名称，防止同事看见
+
+
 # About
 Move Mouse is a simple piece of software that is designed to simulate user activity.
 
